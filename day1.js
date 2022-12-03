@@ -11,10 +11,22 @@ parentArr.forEach(element => {
         childrenarr = [];
     }
 })
-const calorie = calories.map(element => {
+let calorie = calories.map(element => {
     const sum = element.reduce((a, b) => {
         return a + b
     })
     return sum;
 })
 console.log(Math.max.apply(null, calorie))
+
+//part2
+Array.prototype.remove = function(value) {
+    this.splice(this.indexOf(value), 1);
+}
+let calorieSum = 0;
+for (let i = 0; i < 3; i++) {
+    let max = Math.max.apply(null, calorie)
+    calorieSum += max
+    calorie.remove(max)
+}
+console.log(calorieSum)
